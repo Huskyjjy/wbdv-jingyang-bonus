@@ -30,7 +30,7 @@ class TopicComponent extends React.Component{
                 onClick={()=>this.props.history.push(`/wam/nuids/${this.state.nuid}/domains`)}>
                 Back
             </button>
-            <ul className="list-group">
+{/*             <ul className="list-group">
                 {this.state.topics.map((topic,index) => 
                     <SchemaComponent
                         nuid={this.state.nuid}
@@ -44,7 +44,7 @@ class TopicComponent extends React.Component{
                     }}>
                     Add {this.state.domainname}
                 </button>
-            </ul>
+            </ul> */}
             </div>
         )
     }
