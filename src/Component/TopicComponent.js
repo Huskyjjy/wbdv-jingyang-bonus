@@ -22,6 +22,14 @@ class TopicComponent extends React.Component{
     }
     render(){
         return(
+            <div>
+            <h1>
+                {this.state.domainname}
+            </h1>
+            <button className="btn btn-dark"
+                onClick={()=>this.props.history.push(`/wam/nuids/${this.state.nuid}/domains`)}>
+                Back
+            </button>
             <ul className="list-group">
                 {this.state.topics.map((topic,index) => 
                     <SchemaComponent
@@ -32,11 +40,12 @@ class TopicComponent extends React.Component{
                 <button className="btn btn-primary"
                     onClick={()=>{
                         this.TopicService.createTopic(this.state.nuid,this.state.domainname,this.state.topic)
-                        window.location.reload(false)
+                            .then(window.location.reload(false))
                     }}>
                     Add {this.state.domainname}
                 </button>
             </ul>
+            </div>
         )
     }
 }

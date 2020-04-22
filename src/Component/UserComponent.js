@@ -16,6 +16,8 @@ class UserComponent extends React.Component{
     }
     render(){
         return(
+            <div>
+            <h1>Users</h1>
             <ul className="list-group">
                 {console.log(this.state.nuids)}
                 {this.state.nuids && this.state.nuids.map((nuid,index) => 
@@ -25,6 +27,7 @@ class UserComponent extends React.Component{
                         {nuid}
                     </li>)}
             </ul>
+            </div>
         )
     }
 }

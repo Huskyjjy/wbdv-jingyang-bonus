@@ -4,13 +4,14 @@ import DomainServie from '../Service/DomainService'
 class DomainComponent extends React.Component{
     constructor(props){
         super(props);
-        this.state={
-            domains:[],
-            nuid:this.props.match.params.nuid,
-            currdomain: ""
-            
-        }
         this.DomainServie = new DomainServie();
+    }
+    state={
+        domains:[],
+        nuid:this.props.match.params.nuid,
+        currdomain: "",
+        editing: false
+        
     }
     componentDidMount = async () => {
         const ds = await this.DomainServie.findDomainsForUser(this.state.nuid)
@@ -20,17 +21,37 @@ class DomainComponent extends React.Component{
     }
     render(){
         return(
+            <div>
+            <h1>
+                Domains for {this.state.nuid}
+            </h1>
+            <button className="btn btn-dark"
+                onClick={()=>this.props.history.push(`/wam/nuids`)}>
+                Back
+            </button>
             <ul className="list-group">
-                {console.log(this.state.domains)}
-                {console.log(this.state.nuid)}
                 {this.state.domains.map((domain,index) => 
                     <li className="list-group-item"
                         key={index}
-                        onClick={()=>this.props.history.push(`/wam/nuids/${this.state.nuid}/domains/${domain}`)}
                         nuid={this.state.nuid}
                         domain={domain}>
-                        {domain}
-                    </li>)}
+                        <div className="row">
+                            <div className="col-8"
+                                onClick={()=>this.props.history.push(`/wam/nuids/${this.state.nuid}/domains/${domain}`)}
+                        >
+                                {domain}
+                            </div>
+                            <div className="col-4">
+                            <button className="btn btn-warning"
+                                onClick={()=>{
+                                    this.setState({editing:true})
+                                }}>
+                                Edit
+                            </button>
+                            </div>
+                        </div>
+                    </li>
+                )}
                 <div>
                 <div className="inline">    
                 <input className="form-control"
@@ -54,6 +75,7 @@ class DomainComponent extends React.Component{
                 </div>
                 </div>
             </ul>
+            </div>
         )
     }
 }

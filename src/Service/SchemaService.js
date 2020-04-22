@@ -13,6 +13,11 @@ class SchemaService{
         })
         return response.json()
     }
-
+    deleteWidgetById = async(nuid, domain, tid) => {
+        const response = await fetch(`http://wbdv-generic-server.herokuapp.com/api/${nuid}/${domain}/${tid}`,{
+            method: 'DELETE'
+        })
+        return response.json()
+    }
 }
 export default SchemaService;
