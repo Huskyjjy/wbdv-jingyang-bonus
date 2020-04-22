@@ -25,8 +25,8 @@ class SchemaComponent extends React.Component{
             <li>
                 {console.log(this.state.keys)}
                 {!this.state.editing && <div className="row">
-                    {this.state.keys.filter(key=>!key.includes('_')).map(key=>
-                        <button type="button" className="btn btn-link">
+                    {this.state.keys.filter(key=>!key.includes('_')).map((key,index)=>
+                        <button type="button" className="btn btn-link" key={index}>
                             {this.state.topic[key]}
                         </button>    
                         )}
