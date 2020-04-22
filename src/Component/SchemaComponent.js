@@ -46,6 +46,7 @@ class SchemaComponent extends React.Component{
                                     <div className="col-8">
                                         <input
                                             onChange={(e)=>{
+                                                // eslint-disable-next-line
                                                 this.state.currVal[key] = e.target.value
                                                 this.forceUpdate()
                                             }}
@@ -60,7 +61,10 @@ class SchemaComponent extends React.Component{
                                     <div className="col-4">
                                         <input
                                             onChange={(e)=>{
+                                                // eslint-disable-next-line
                                                 this.state.newkey = e.target.value
+                                                this.forceUpdate()
+                                                // eslint-disable-next-line
                                                 this.state.currVal[this.state.newkey] = this.state.newval
                                                 this.forceUpdate()
                                             }}
@@ -70,7 +74,10 @@ class SchemaComponent extends React.Component{
                                     <div className="col-8">
                                         <input
                                             onChange={(e)=>{
+                                                // eslint-disable-next-line
                                                 this.state.newval = e.target.value
+                                                this.forceUpdate()
+                                                // eslint-disable-next-line
                                                 this.state.currVal[this.state.newkey] = this.state.newval
                                                 this.forceUpdate()
                                             }}

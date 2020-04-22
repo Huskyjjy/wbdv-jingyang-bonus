@@ -5,7 +5,9 @@ import LoadContainer from './Container/LoadContainer'
 
 function App() {
   return (
-    <LoadContainer/>
+    <div>
+        <LoadContainer/>
+    </div>
   );
 }
 
